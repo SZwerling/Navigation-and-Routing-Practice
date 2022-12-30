@@ -13,8 +13,23 @@ function Button({
     outline,
     rounded
 }) {
+    const classes = classNames('px-3 py-1.5 border m-1 text-white', {
+        'bg-sky-400 border-sky-400 text-white': primary,
+        'bg-slate-300 border-slate-300': secondary,
+        'bg-green-500 border-green-500': success,
+        'bg-yellow-300 border-yellow-300 text-white': warning,
+        'bg-red-600 border-red-600': danger,
+        'bg-white': outline,
+        'text-sky-400': outline && primary,
+        'text-slate-300': outline && secondary,
+        'text-green-500': outline && success,
+        'text-yellow-300': outline && warning,
+        'text-red-600': outline && danger,
+        'rounded-full': rounded
+    })
+
     return(
-        <button className='text-white bg-blue-500 rounded-md hover:bg-blue-600 py-2 px-4 m-2'>{children}</button>
+        <button className={classes}>{children}</button>
     )
 }
 
