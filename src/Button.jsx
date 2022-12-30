@@ -1,4 +1,6 @@
-import PropTypes from 'prop-types'
+import classNames from "classnames"
+
+
 
 
 function Button({
@@ -12,7 +14,7 @@ function Button({
     rounded
 }) {
     return(
-        <button>{children}</button>
+        <button className='text-white bg-blue-500 rounded-md hover:bg-blue-600 py-2 px-4 m-2'>{children}</button>
     )
 }
 
