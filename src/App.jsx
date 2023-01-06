@@ -2,13 +2,15 @@ import Button from "./Button";
 import { FaBeer, FaRegGem } from 'react-icons/fa';
 
 function App() {
+   const onClick = () => {console.log('clicked')}
+   const oneClick = () => console.log('oneoneclickclick')
    return (
       <div>
          <div>
-            <Button primary><FaBeer />Beer</Button>
+            <Button primary onClick={onClick}><FaBeer />Beer</Button>
          </div>
          <div>
-            <Button secondary rounded><FaRegGem/>Diamonds</Button>
+            <Button secondary rounded onClick={oneClick}><FaRegGem/>Diamonds</Button>
          </div>
          <div>
             <Button warning>Exit</Button>
