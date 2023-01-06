@@ -1,13 +1,14 @@
 import Button from "./Button";
+import { FaBeer, FaRegGem } from 'react-icons/fa';
 
 function App() {
    return (
       <div>
          <div>
-            <Button primary>Buy Now!</Button>
+            <Button primary><FaBeer />Beer</Button>
          </div>
          <div>
-            <Button secondary rounded>Save</Button>
+            <Button secondary rounded><FaRegGem/>Diamonds</Button>
          </div>
          <div>
             <Button warning>Exit</Button>
