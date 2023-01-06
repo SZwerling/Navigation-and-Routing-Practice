@@ -4,10 +4,11 @@ import { FaBeer, FaRegGem } from 'react-icons/fa';
 function App() {
    const onClick = () => {console.log('clicked')}
    const oneClick = () => console.log('oneoneclickclick')
+   
    return (
       <div>
          <div>
-            <Button primary onClick={onClick}><FaBeer />Beer</Button>
+            <Button primary className={'mb-5 hover:bg-sky-700'} onClick={onClick}><FaBeer />Beer</Button>
          </div>
          <div>
             <Button secondary rounded onClick={oneClick}><FaRegGem/>Diamonds</Button>
