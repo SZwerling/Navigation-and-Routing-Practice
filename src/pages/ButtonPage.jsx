@@ -1,7 +1,7 @@
-import Button from "./components/Button";
+import Button from "../components/Button";
 import { FaBeer, FaRegGem } from 'react-icons/fa';
 
-function App() {
+function ButtonPage() {
    const onClick = () => {console.log('clicked')}
    const oneClick = () => console.log('oneoneclickclick')
    
@@ -29,4 +29,4 @@ function App() {
    );
 }
 
-export default App;
+export default ButtonPage;
