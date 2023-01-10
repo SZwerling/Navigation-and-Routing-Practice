@@ -9,8 +9,10 @@ function Accordion({items}){
         return (
             <React.Fragment key={item.id} >
             <h3 className="italic text-lg" onClick={() => handleClick(index)}>{item.label}</h3>
-          
-            <div className={`${isExpanded ? "italic text-lg" : ""}`}>{item.content}</div>
+          {isExpanded &&
+           <div>{item.content}</div>
+          }
+           
             </React.Fragment>
         )
     })
