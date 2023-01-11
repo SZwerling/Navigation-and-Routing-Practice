@@ -2,7 +2,14 @@ import React, { useState } from "react";
 import { BiDownArrow, BiLeftArrow } from "react-icons/bi";
 
 function Accordion({ items }) {
-   const [expandIndex, setExpandIndex] = useState(1);
+   const [expandIndex, setExpandIndex] = useState(-1);
+   const handleClick = (index) => {
+    if(index === expandIndex){
+        setExpandIndex(-1)
+    } else {
+        setExpandIndex(index)
+    }
+   }
 
    const renderedItems = items.map((item, index) => {
       const isExpanded = index === expandIndex;
@@ -16,7 +23,7 @@ function Accordion({ items }) {
          <React.Fragment key={item.id}>
             <div
                className="flex justify-between p-3 bg-gray-50 border-b items-center cursor-pointer"
-               onClick={() => setExpandIndex(index)}
+               onClick={() => handleClick(index)}
             >
                {item.label}
                {icon}
