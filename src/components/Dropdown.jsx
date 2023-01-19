@@ -1,6 +1,7 @@
 
 
-function Dropdown() {
+function Dropdown({ options }) {
+    
     return (
         <div>I am ze dropdown</div>
     )
