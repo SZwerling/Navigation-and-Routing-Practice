@@ -21,8 +21,8 @@ function App() {
              <ButtonPage /> */}
          <Dropdown
             options={options}
-            selection={selection}
-            onSelect={handleSelect}
+            value={selection}
+            onChange={handleSelect}
          />
       </div>
    );
