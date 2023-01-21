@@ -10,17 +10,20 @@ function Dropdown({ options, selection, onSelect }) {
                                                                             // a piece of state based on it's current state value
 
     const renderedOptions = options.map((option) => {
-        return <div onClick={() => handleOptionClick(option)} key={option.id}>{option.label}</div>
+        return <div className="cursor-pointer" onClick={() => handleOptionClick(option)} key={option.id}>{option.label}</div>
     });
 
-    let content = selection ? selection.label : 'Select...'
     
     return (
         <div>
-            <div onClick={handleToggle}>{content}</div>
+            <div className="cursor-pointer" onClick={handleToggle}>{selection?.label || 'Select...' }</div>
             {isOpen && <div>{renderedOptions}</div>}
         </div>
     )
 } 
 
 export default Dropdown;
+
+// selection?.label || 'Select...'
+// the fancy question mark will return undefined 
+// if there is no selection object rather than an error
