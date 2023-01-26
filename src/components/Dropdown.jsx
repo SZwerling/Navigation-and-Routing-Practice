@@ -1,9 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { GoChevronDown, GoChevronLeft } from "react-icons/go";
 import Panel from "./Panel";
 
 function Dropdown({ options, value, onChange }) {
    const [isOpen, setIsOpen] = useState(false);
+
+   useEffect(() => {
+      const handler = (event) => {
+         console.log(event.target)
+      }
+      document.addEventListener('click', handler, true)
+
+      return () => {
+         document.removeEventListener('click', handler)
+      }
+   }, []);
+
    const handleOptionClick = (optionObj) => {
       setIsOpen(false);
       onChange(optionObj);
