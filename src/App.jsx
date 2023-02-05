@@ -1,6 +1,7 @@
 import ButtonPage from "./pages/ButtonPage";
 import AccordionPage from "./pages/AccordionPage";
 import DropdownPage from './pages/DropdownPage';
+import ModalPage from "./pages/ModalPages";
 import Sidebar from "./components/Sidebar";
 import Route from "./components/Route";
 import { useState } from "react";
@@ -18,6 +19,9 @@ function App() {
             </Route>
             <Route path="/buttons">
                <ButtonPage />
+            </Route>
+            <Route path="/modal">
+               <ModalPage />
             </Route>
          </div>
       </div>
