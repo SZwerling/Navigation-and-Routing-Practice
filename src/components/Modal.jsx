@@ -1,6 +1,16 @@
 import ReactDOM from "react-dom";
+import { useEffect } from "react";
 
 function Modal({ onClose, children, actionBar }) {
+   useEffect(()=> {
+      document.body.classList.add('overflow-hidden');
+      //if there is enough text that the page can scroll underneath the modal, this prevents that from happening
+      return () => {
+         document.body.classList.remove('overflow-hidden')
+         //cleanup function so we can go back to scrolling when the modal is gone
+      }
+   }, [])
+
    return ReactDOM.createPortal(
       <div>
          <div
