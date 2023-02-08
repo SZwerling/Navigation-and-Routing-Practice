@@ -6,13 +6,14 @@ function Table({data, config}){
     })
 
     const renderedRows = data.map((item) => {
+        const renderedCells = config.map((column) => {
+            return(
+                <td className="p-2" key={column.label}>{column.render(item)}</td>
+            )
+        })
         return (
             <tr className="border-b" key={item.name}>
-                <td className="p-3">{item.name}</td>
-                <td className="p-3">
-                    <div className={`p-3 m-2 ${item.color}`}></div>
-                </td>
-                <td className="p-3">{item.score}</td>
+               {renderedCells}
             </tr>
         )
     })
