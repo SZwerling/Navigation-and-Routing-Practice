@@ -8,8 +8,14 @@ function TablePage(){
         {name: "lime", color: 'bg-green-500', score: 4}
     ]
 
+    const config = [
+        {label: 'Name'},
+        {label: 'Color'},
+        {label: 'Score'}
+    ]
+
     return(
-        <Table data={data}/>
+        <Table data={data} config={config}/>
     )
 }
 
