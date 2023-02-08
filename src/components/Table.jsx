@@ -1,4 +1,4 @@
-function Table({data, config}){
+function Table({data, config, keyFn}){
     const renderedHeaders = config.map((column) => {
         return(
             <th key={column.label}>{column.label}</th>
@@ -12,7 +12,7 @@ function Table({data, config}){
             )
         })
         return (
-            <tr className="border-b" key={item.name}>
+            <tr className="border-b" key={keyFn(item)}> 
                {renderedCells}
             </tr>
         )

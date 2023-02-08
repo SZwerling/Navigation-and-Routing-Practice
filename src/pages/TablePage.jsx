@@ -14,7 +14,13 @@ function TablePage() {
       { label: "Score", render: (fruit) => fruit.score },
    ];
 
-   return <Table data={data} config={config} />;
+//This function puts burden of key name here in parent component.
+//In this parent component we know that .name will be a property name in the object.
+   const keyFn = (fruit) => {
+      return fruit.name
+   }
+
+   return <Table data={data} config={config} keyFn={keyFn}/>;
 }
 
 export default TablePage;
