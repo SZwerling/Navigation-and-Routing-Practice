@@ -1,4 +1,4 @@
-import Table from "../components/Table";
+import SortableTable from "../components/SortableTable";
 
 function TablePage() {
    const data = [
@@ -20,7 +20,7 @@ function TablePage() {
       return fruit.name
    }
 
-   return <Table data={data} config={config} keyFn={keyFn}/>;
+   return <SortableTable data={data} config={config} keyFn={keyFn}/>;
 }
 
 export default TablePage;
