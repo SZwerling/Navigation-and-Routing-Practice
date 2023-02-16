@@ -4,7 +4,9 @@ import DropdownPage from './pages/DropdownPage';
 import ModalPage from "./pages/ModalPages";
 import TablePage from "./pages/TablePage";
 import Sidebar from "./components/Sidebar";
+import CounterPage from "./pages/CounterPage";
 import Route from "./components/Route";
+
 import { useState } from "react";
 
 function App() {
@@ -26,6 +28,9 @@ function App() {
             </Route>
             <Route path="/table">
                <TablePage />
+            </Route>
+            <Route path="/counter">
+               <CounterPage initialCount={10} />
             </Route>
          </div>
       </div>
