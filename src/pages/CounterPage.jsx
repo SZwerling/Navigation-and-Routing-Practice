@@ -9,30 +9,30 @@ const VALUE_TO_ADD = 'valueToAdd';
 const SUBMIT = 'submit';
 
 const reducer = (state, action) => {
-   if (action.type === INCREMENT) {
-      return {
-         ...state,
-         count: state.count + 1,
-      };
-   } else if (action.type === DECREMENT) {
-      return {
-         ...state,
-         count: state.count - 1,
-      };
-   } else if (action.type === VALUE_TO_ADD) {
-      return {
-         ...state,
-         valueToAdd: action.payload,
-      };
-   } else if (action.type === SUBMIT) {
-      return {
-         ...state,
-         count: state.count + state.valueToAdd,
-         valueToAdd: 1,
-      };
+   switch (action.type) {
+      case INCREMENT:
+         return {
+            ...state,
+            count: state.count + 1
+         }
+      case DECREMENT:
+         return {
+            ...state,
+            count: state.count - 1
+         }
+      case VALUE_TO_ADD:
+         return {
+            ...state,
+            valueToAdd: action.payload
+         }
+      case SUBMIT:
+         return {
+            count: state.count + state.valueToAdd,
+            valueToAdd: 1
+         }
+      default: return state // could also throw new Error('unexpected action type: ' + action.type);
    }
-   return state;
-};
+}
 
 function CounterPage({ initialCount }) {
    const [state, dispatch] = useReducer(reducer, {
