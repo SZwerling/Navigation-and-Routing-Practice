@@ -4,36 +4,68 @@ import { useReducer } from "react";
 import Panel from "../components/Panel";
 
 const reducer = (state, action) => {
-
-}
+   if (action.type === "increment") {
+      return {
+         ...state,
+         count: state.count + 1,
+      };
+   } else if (action.type === "decrement") {
+      return {
+         ...state,
+         count: state.count - 1,
+      };
+   } else if (action.type === "valueToAdd") {
+      return {
+         ...state,
+         valueToAdd: action.payload,
+      };
+   } else if (action.type === "submit") {
+      return {
+         ...state,
+         count: state.count + state.valueToAdd,
+         valueToAdd: 1,
+      };
+   }
+   return state;
+};
 
 function CounterPage({ initialCount }) {
    // const [count, setCount] = useState(initialCount);
    // const [valueToAdd, setValueToAdd] = useState(1);
    const [state, dispatch] = useReducer(reducer, {
       count: initialCount,
-      valueToAdd: 0
-   })
+      valueToAdd: 0,
+   });
 
    const increment = () => {
-      // setCount(count + 1);
+      dispatch({
+         type: "increment",
+      });
    };
    const decrement = () => {
-      // setCount(count - 1);
+      dispatch({
+         type: "decrement",
+      });
    };
 
-
-
    const handleChange = (e) => {
-    const value = parseInt(e.target.value) || 0;
-   //  setValueToAdd(value)
-   }
+      const value = parseInt(e.target.value) || 0;
+      //  setValueToAdd(value)
+      dispatch({
+         type: "valueToAdd",
+         payload: value,
+      });
+   };
 
    const handleSubmit = (e) => {
-    e.preventDefault();
-   //  setCount(count + valueToAdd);
-   //  setValueToAdd(0)
-   }
+      e.preventDefault();
+      //  setCount(count + valueToAdd);
+      //  setValueToAdd(0)
+      dispatch({
+         type: "submit",
+         payload: state.valueToAdd,
+      });
+   };
 
    return (
       <Panel className="m-3">
