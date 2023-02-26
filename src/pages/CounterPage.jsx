@@ -3,23 +3,28 @@ import Button from "../components/Button";
 import { useReducer } from "react";
 import Panel from "../components/Panel";
 
+const INCREMENT = 'increment';
+const DECREMENT = 'decrement';
+const VALUE_TO_ADD = 'valueToAdd';
+const SUBMIT = 'submit';
+
 const reducer = (state, action) => {
-   if (action.type === "increment") {
+   if (action.type === INCREMENT) {
       return {
          ...state,
          count: state.count + 1,
       };
-   } else if (action.type === "decrement") {
+   } else if (action.type === DECREMENT) {
       return {
          ...state,
          count: state.count - 1,
       };
-   } else if (action.type === "valueToAdd") {
+   } else if (action.type === VALUE_TO_ADD) {
       return {
          ...state,
          valueToAdd: action.payload,
       };
-   } else if (action.type === "submit") {
+   } else if (action.type === SUBMIT) {
       return {
          ...state,
          count: state.count + state.valueToAdd,
@@ -30,8 +35,6 @@ const reducer = (state, action) => {
 };
 
 function CounterPage({ initialCount }) {
-   // const [count, setCount] = useState(initialCount);
-   // const [valueToAdd, setValueToAdd] = useState(1);
    const [state, dispatch] = useReducer(reducer, {
       count: initialCount,
       valueToAdd: 0,
@@ -39,30 +42,27 @@ function CounterPage({ initialCount }) {
 
    const increment = () => {
       dispatch({
-         type: "increment",
+         type: INCREMENT,
       });
    };
    const decrement = () => {
       dispatch({
-         type: "decrement",
+         type: DECREMENT,
       });
    };
 
    const handleChange = (e) => {
       const value = parseInt(e.target.value) || 0;
-      //  setValueToAdd(value)
       dispatch({
-         type: "valueToAdd",
+         type: VALUE_TO_ADD,
          payload: value,
       });
    };
 
    const handleSubmit = (e) => {
       e.preventDefault();
-      //  setCount(count + valueToAdd);
-      //  setValueToAdd(0)
       dispatch({
-         type: "submit",
+         type: SUBMIT,
          payload: state.valueToAdd,
       });
    };
