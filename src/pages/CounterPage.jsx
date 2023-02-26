@@ -27,6 +27,7 @@ const reducer = (state, action) => {
          }
       case SUBMIT:
          return {
+            ...state,
             count: state.count + state.valueToAdd,
             valueToAdd: 0
          }
