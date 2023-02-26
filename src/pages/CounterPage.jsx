@@ -28,7 +28,7 @@ const reducer = (state, action) => {
       case SUBMIT:
          return {
             count: state.count + state.valueToAdd,
-            valueToAdd: 1
+            valueToAdd: 0
          }
       default: return state // could also throw new Error('unexpected action type: ' + action.type);
    }
